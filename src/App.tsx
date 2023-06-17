@@ -7,16 +7,12 @@ import styles from "./App.module.scss";
 type Promised<T> = T |Promise<T>
 
 async function parse_content(text: string): Promise<string[]> {
-
   await invoke("parse_codes", { text })
-
   return []
 }
 
-const pdf_filename = "MS-RD-T1-2-11"
-
 const Barcode = (props: { filename: string }) => {
-  const { filename = pdf_filename } = props
+  const { filename } = props
   const url = `http://localhost:8080/${filename}.pdf`
 
   console.log({barcode: filename})
@@ -70,7 +66,7 @@ function App() {
         }
       </div>
 
-      {/* <ArticleParser text={text} /> */}
+      <ArticleParser text={text} />
 
     </div>
   );
